@@ -1,0 +1,176 @@
+{
+  "api_endpoint": "https://panel.markenflux.de/api/v2",
+  "authentication": {
+    "type": "query_or_post_parameter",
+    "key_name": "key",
+    "type_hint": "string",
+    "description": "Pass your unique API key with every request. // Übergeben Sie Ihren einzigartigen API-Schlüssel bei jeder Anfrage."
+  },
+  "requests": {
+    "get_services": {
+      "method": "GET / POST",
+      "action": "services",
+      "description": "Retrieves all active services, categories, rates, and limits. // Ruft alle aktiven Dienste, Kategorien, Preise und Limits ab.",
+      "parameters": {
+        "key": {
+          "value": "your_api_key_here",
+          "type": "string"
+        },
+        "action": {
+          "value": "services",
+          "type": "string"
+        }
+      },
+      "example_url": "https://panel.markenflux.de/api/v2?action=services&key=your_api_key_here"
+    },
+    "add_order": {
+      "method": "POST",
+      "action": "add",
+      "description": "Places a new order on the platform. // Platziert eine neue Bestellung auf der Plattform.",
+      "parameters": {
+        "key": {
+          "value": "your_api_key_here",
+          "type": "string"
+        },
+        "action": {
+          "value": "add",
+          "type": "string"
+        },
+        "service": {
+          "value": 1,
+          "type": "integer"
+        },
+        "link": {
+          "value": "https://instagram.com/username",
+          "type": "string"
+        },
+        "quantity": {
+          "value": 100,
+          "type": "integer"
+        },
+        "runs": {
+          "value": 0,
+          "type": "integer (optional)"
+        },
+        "interval": {
+          "value": 0,
+          "type": "integer (optional)"
+        }
+      }
+    },
+    "order_status": {
+      "method": "GET / POST",
+      "action": "status",
+      "description": "Checks the status, charge, and remaining quantity of a single order. // Überprüft den Status, die Kosten und die verbleibende Menge einer einzelnen Bestellung.",
+      "parameters": {
+        "key": {
+          "value": "your_api_key_here",
+          "type": "string"
+        },
+        "action": {
+          "value": "status",
+          "type": "string"
+        },
+        "order": {
+          "value": 142563,
+          "type": "integer"
+        }
+      },
+      "example_url": "https://panel.markenflux.de/api/v2?action=status&order=142563&key=your_api_key_here"
+    },
+    "multiple_order_status": {
+      "method": "GET / POST",
+      "action": "status",
+      "description": "Retrieves status info for multiple orders simultaneously using comma-separated IDs. // Ruft Statusinformationen für mehrere Bestellungen gleichzeitig über kommagetrennte IDs ab.",
+      "parameters": {
+        "key": {
+          "value": "your_api_key_here",
+          "type": "string"
+        },
+        "action": {
+          "value": "status",
+          "type": "string"
+        },
+        "orders": {
+          "value": "142563,142564,142565",
+          "type": "string (comma-separated)"
+        }
+      },
+      "example_url": "https://panel.markenflux.de/api/v2?action=status&orders=142563,142564,142565&key=your_api_key_here"
+    },
+    "create_refill": {
+      "method": "GET / POST",
+      "action": "refill",
+      "description": "Requests a manual refill for an eligible order. // Fordert eine manuelle Auffüllung für eine berechtigte Bestellung an.",
+      "parameters": {
+        "key": {
+          "value": "your_api_key_here",
+          "type": "string"
+        },
+        "action": {
+          "value": "refill",
+          "type": "string"
+        },
+        "order": {
+          "value": 142563,
+          "type": "integer"
+        }
+      },
+      "example_url": "https://panel.markenflux.de/api/v2?action=refill&order=142563&key=your_api_key_here"
+    },
+    "multiple_refill": {
+      "method": "GET / POST",
+      "action": "refill",
+      "description": "Requests refills for multiple orders simultaneously. // Fordert Auffüllungen für mehrere Bestellungen gleichzeitig an.",
+      "parameters": {
+        "key": {
+          "value": "your_api_key_here",
+          "type": "string"
+        },
+        "action": {
+          "value": "refill",
+          "type": "string"
+        },
+        "orders": {
+          "value": "142563,142564",
+          "type": "string (comma-separated)"
+        }
+      }
+    },
+    "get_balance": {
+      "method": "GET / POST",
+      "action": "balance",
+      "description": "Fetches current account balance and currency. // Ruft das aktuelle Kontoguthaben und die Währung ab.",
+      "parameters": {
+        "key": {
+          "value": "your_api_key_here",
+          "type": "string"
+        },
+        "action": {
+          "value": "balance",
+          "type": "string"
+        }
+      },
+      "example_url": "https://panel.markenflux.de/api/v2?action=balance&key=your_api_key_here"
+    },
+    "cancel_order": {
+      "method": "GET / POST",
+      "action": "cancel",
+      "description": "Cancels an active order if permitted. // Bricht eine aktive Bestellung ab, sofern zulässig.",
+      "parameters": {
+        "key": {
+          "value": "your_api_key_here",
+          "type": "string"
+        },
+        "action": {
+          "value": "cancel",
+          "type": "string"
+        },
+        "order": {
+          "value": 142563,
+          "type": "integer"
+        }
+      }
+    }
+  }
+}
