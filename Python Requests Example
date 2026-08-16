@@ -1,0 +1,12 @@
+import requests
+
+api_url = "https://panel.markenflux.de/api/v2"
+payload = {
+    "key": "yourKey",
+    "action": "balance"
+}
+
+response = requests.post(api_url, data=payload)
+data = response.json()
+
+print(f"Current Balance: {data.get('balance')} {data.get('currency')}")
