@@ -1,0 +1,24 @@
+<?php
+$apiUrl = 'https://panel.markenflux.de/api/v2';
+$apiKey = 'yourKey';
+
+$postData = [
+    'key' => $apiKey,
+    'action' => 'add',
+    'service' => 1,
+    'link' => 'https://instagram.com/username',
+    'quantity' => 100
+];
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $apiUrl);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postData));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+$response = curl_exec($ch);
+curl_close($ch);
+
+$result = json_decode($response, true);
+print_r($result);
+?>
