@@ -29,4 +29,4 @@ Welcome to the comprehensive developer documentation for the **MarkenFlux Social
 All API requests must be sent via **HTTPS** to the following base endpoint:
 
 ```text
-[https://panel.markenflux.de/api/v2](https://panel.markenflux.de/api/v2)
+[https://panel.markenflux.de/api/v2]
